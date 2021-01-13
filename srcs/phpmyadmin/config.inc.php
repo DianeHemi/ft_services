@@ -29,9 +29,15 @@ $i++;
 /* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'cookie'; //config ?
 /* Server parameters */
-$cfg['Servers'][$i]['host'] = 'mysql-svc';
-$cfg['Servers'][$i]['port'] = '3306';
+$cfg['Servers'][$i]['host'] = 'mysql-svc'; //IP possible
 $cfg['PmaAbsoluteUri'] = './';
+//$cfg['Servers'][$i]['ssl'] = true;
+
+//Chemins d'accès aux clés SSL
+//$cfg['Servers'][$i]['ssl_key'] = '/etc/mysql/server-key.pem';
+//$cfg['Servers'][$i]['ssl_cert'] = '/etc/mysql/server-key.cert';
+//$cfg['Servers'][$i]['ssl_verify'] = false;
+
 
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
@@ -41,10 +47,16 @@ $cfg['Servers'][$i]['AllowNoPassword'] = true;
  */
 
 /* User used to manipulate with storage */
- //$cfg['Servers'][$i]['controlhost'] = 'localhost';
+ // $cfg['Servers'][$i]['controlhost'] = 'localhost';
+ // $cfg['Servers'][$i]['controlport'] = '';
+ // $cfg['Servers'][$i]['AllowRoot'] = true;
  $cfg['Servers'][$i]['controluser'] = 'root';
  $cfg['Servers'][$i]['controlpass'] = '';
- // $cfg['Servers'][$i]['controlport'] = '';
+
+//Si auth_type = config
+// $cfg['Servers'][$i]['user'] = 'root';
+// $cfg['Servers'][$i]['password'] = 'root';
+
 
 /* Storage database and tables */
  $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';

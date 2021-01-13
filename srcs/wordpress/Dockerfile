@@ -1,10 +1,16 @@
 # [Download image]
 FROM alpine:latest
 
+
+# [Expose ports]
+EXPOSE	5050
+
+
 # [Download packages]
 RUN apk update && apk --no-cache add \
 	nginx \
 	openrc \
+	wget \
 	php7 \
 	php7-bcmath \
 	php7-common \
@@ -35,24 +41,24 @@ RUN apk update && apk --no-cache add \
 	&& rm -rf /var/cache/apk/*
 
 
+# [Configuration WordPress]
+RUN wget https://wordpress.org/latest.tar.gz \
+	&& tar -xvzf latest.tar.gz \
+	&& mv /wordpress/ /www \
+	&& rm -f latest.tar.gz \
+	&& rm -f /www/wp-config-sample.php
+COPY wp-config.php /www/
+
+
+
 # [Configuration nginx]
 COPY nginx.conf /etc/nginx/conf.d
-RUN mkdir /var/run/nginx \
-	&& rm -f /etc/nginx/conf.d/default.conf
-
-# [Configuration phpmyadmin]
-RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz \
-	&& tar -zxvf phpMyAdmin-5.0.4-all-languages.tar.gz \
-	&& mv  phpMyAdmin-5.0.4-all-languages /www \
-	&& rm -f /www/config.sample.inc.php \
-	&& rm -f phpMyAdmin-5.0.4-all-languages.tar.gz
-COPY config.inc.php /www
-
-# [Configuration au lancement]
 COPY setup.sh /tmp
-RUN chmod +x /tmp/setup.sh
+#COPY index.html www/
+RUN chmod +x /tmp/setup.sh \
+	&& mkdir /run/nginx
+
+
 
 # [Config]
 CMD sh /tmp/setup.sh
-
-EXPOSE 5000

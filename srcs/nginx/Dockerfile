@@ -10,7 +10,6 @@ EXPOSE	22 80 443
 RUN apk update && apk --no-cache add \
 	nginx \
 	openrc \
-	openssh \
 	openssl \
 	&& rm -rf /var/cache/apk/*
 
