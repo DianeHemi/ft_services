@@ -15,11 +15,6 @@ RUN apk update && apk --no-cache add \
 	&& rm -rf /var/cache/apk/*
 
 
-
-# [Add user that the web server will use]
-
-
-
 # [Files and permissions]
 RUN adduser -D -g 'www' www \
 	&& mkdir /www \
@@ -27,11 +22,9 @@ RUN adduser -D -g 'www' www \
 	&& chown -R www:www /www
 
 
-# [Configuration SSL certificate && SSH user]
+# [Configuration SSL certificate]
 RUN mkdir ./ssl \
 	&& openssl req -x509 -nodes -days 365 -subj "/C=FR/ST=Paris/O=42/CN=dchampda" -addext "subjectAltName=DNS:localhost" -newkey rsa:2048 -keyout /ssl/nginx-selfsigned.key -out /ssl/nginx-selfsigned.crt
-
-#RUN SSH-user creation
 
 
 # [Configuration nginx]
