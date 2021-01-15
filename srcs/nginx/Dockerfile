@@ -1,5 +1,5 @@
 # [Download image]
-FROM alpine:latest
+FROM alpine:3.12
 
 
 # [Expose ports]
@@ -7,10 +7,7 @@ EXPOSE	22 80 443
 
 
 # [Download packages]
-RUN apk update && apk --no-cache add \
-	nginx \
-	openrc \
-	openssl \
+RUN apk update && apk add --no-cache nginx openrc openssl \
 	&& rm -rf /var/cache/apk/*
 
 
