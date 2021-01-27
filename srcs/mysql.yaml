@@ -21,6 +21,11 @@ spec:
         ports:
         - containerPort: 3306
           name: mysql
+        livenessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 30
+          periodSeconds: 5
         volumeMounts:
         - name: mysql-data
           mountPath: /var/lib/mysql

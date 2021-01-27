@@ -21,6 +21,13 @@ spec:
         ports:
         - containerPort: 5000
           name: phpmyadmin
+        livenessProbe:
+          httpGet:
+            path : 
+            port: 5000
+            scheme: HTTPS
+          initialDelaySeconds: 30
+          periodSeconds: 5
  
 
 ---
