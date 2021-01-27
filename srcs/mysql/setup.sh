@@ -1,9 +1,9 @@
 #!/bin/sh
 
-
 openrc
 touch /run/openrc/softlevel
 
+/etc/init.d/telegraf start
 /etc/init.d/mariadb setup
 /etc/init.d/mariadb start
 
@@ -15,3 +15,4 @@ mysql wordpress_db -u root < /www/wordpress_db.sql
 
 echo '> Everything went well !'
 
+tail -f /dev/null

@@ -8,6 +8,7 @@ EXPOSE	3306
 
 # [Download packages]
 RUN apk add --no-cache mysql mysql-client openrc \
+	&& apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ \
 	&& rm -rf /var/cache/apk/*
 
 # [Files permissions]
@@ -19,6 +20,8 @@ RUN mkdir www/ \
 # [Configuration BDD]
 COPY mariadb_user_creation.sql /www/
 COPY wordpress_db.sql /www/
+COPY mariadb-server.cnf /etc/my.cnf.d/
+COPY telegraf.conf /etc/
 
 
 

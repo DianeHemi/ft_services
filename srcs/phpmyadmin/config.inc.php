@@ -30,13 +30,8 @@ $i++;
 $cfg['Servers'][$i]['auth_type'] = 'cookie'; //config ?
 /* Server parameters */
 $cfg['Servers'][$i]['host'] = 'mysql-svc'; //IP possible
+$cfg['Servers'][$i]['port'] = 3306; 
 $cfg['PmaAbsoluteUri'] = './';
-//$cfg['Servers'][$i]['ssl'] = true;
-
-//Chemins d'accès aux clés SSL
-//$cfg['Servers'][$i]['ssl_key'] = '/etc/mysql/server-key.pem';
-//$cfg['Servers'][$i]['ssl_cert'] = '/etc/mysql/server-key.cert';
-//$cfg['Servers'][$i]['ssl_verify'] = false;
 
 
 $cfg['Servers'][$i]['compress'] = false;

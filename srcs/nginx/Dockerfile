@@ -3,11 +3,12 @@ FROM alpine:3.12
 
 
 # [Expose ports]
-EXPOSE	22 80 443
+EXPOSE	80 443
 
 
 # [Download packages]
 RUN apk update && apk add --no-cache nginx openrc openssl \
+	&& apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ \
 	&& rm -rf /var/cache/apk/*
 
 
@@ -27,6 +28,7 @@ RUN mkdir ./ssl \
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY setup.sh /tmp
 COPY index.html www/
+COPY telegraf.conf /etc/
 RUN chmod +x /tmp/setup.sh
 
 # [Config]

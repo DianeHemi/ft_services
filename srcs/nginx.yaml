@@ -18,14 +18,12 @@ spec:
       containers:
       - name: nginx
         image: img-nginx:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
         ports:
         - containerPort: 443
           name: https
         - containerPort: 80
           name: http
-        - containerPort: 22
-          name: ssh
           
 
 ---
@@ -50,6 +48,3 @@ spec:
       targetPort: 80
       protocol: TCP
       name: http
-    - port: 22
-      targetPort: 22
-      name: ssh
