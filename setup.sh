@@ -3,8 +3,13 @@
 #Nettoyage, au cas ou
 minikube delete
 
+#Necessaire
+sudo apt-get install -y conntrack
+sudo apt remove -y golang-docker-credential-helpers
+
+
 #Lancement de minikube
-minikube start --vm-driver=docker
+minikube start --vm-driver=none
 sleep 1
 eval $(minikube -p minikube docker-env)
 
@@ -13,8 +18,14 @@ docker load -i srcs/alpine/alpine.tar
 
 minikube addons enable metrics-server
 minikube addons enable dashboard
-minikube addons enable metallb
 
+
+
+minikube ip > srcs/ip
+IP=$(cat srcs/ip)
+sed -i -e "s/ipminikube/$IP/g" ./srcs/metallb-config.yaml
+sed -i -e "s/ipminikube/$IP/g" ./srcs/ftps/vsftpd.conf
+sed -i -e "s/ipminikube/$IP/g" ./srcs/mysql/wordpress_db.sql
 
 #Build des images Docker
 docker build -t img-nginx srcs/nginx/
@@ -24,7 +35,6 @@ docker build -t img-mysql srcs/mysql/
 docker build -t img-ftps srcs/ftps/
 docker build -t img-grafana srcs/grafana/
 docker build -t img-influxdb srcs/influxdb/
-
 
 #Lancement de metalLB
 kubectl apply -f srcs/metallb-namespace.yaml
@@ -40,4 +50,9 @@ kubectl apply -f srcs/grafana.yaml
 kubectl apply -f srcs/phpmyadmin.yaml
 kubectl apply -f srcs/wordpress.yaml
 
-kubectl get po,svc
+sed -i -e "s/$IP/ipminikube/g" ./srcs/metallb-config.yaml
+sed -i -e "s/$IP/ipminikube/g" ./srcs/ftps/vsftpd.conf
+sed -i -e "s/$IP/ipminikube/g" ./srcs/mysql/wordpress_db.sql
+
+echo \n\n
+echo "Useful commands : \nsudo kubectl get po,svc \nminikube dashboard"
