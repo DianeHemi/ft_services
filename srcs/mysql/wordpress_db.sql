@@ -105,8 +105,8 @@ CREATE TABLE `wp_options` (
 --
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(1, 'siteurl', 'https://192.168.49.2:5050', 'yes'),
-(2, 'home', 'https://192.168.49.2:5050', 'yes'),
+(1, 'siteurl', 'https://ipminikube:5050', 'yes'),
+(2, 'home', 'https://ipminikube:5050', 'yes'),
 (3, 'blogname', 'ft_services', 'yes'),
 (4, 'blogdescription', 'Un projet 42', 'yes'),
 (5, 'users_can_register', '0', 'yes'),
