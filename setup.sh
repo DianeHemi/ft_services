@@ -54,5 +54,6 @@ sed -i -e "s/$IP/ipminikube/g" ./srcs/metallb-config.yaml
 sed -i -e "s/$IP/ipminikube/g" ./srcs/ftps/vsftpd.conf
 sed -i -e "s/$IP/ipminikube/g" ./srcs/mysql/wordpress_db.sql
 
-echo \n\n
+echo 
+echo
 echo "Useful commands : \nsudo kubectl get po,svc \nsudo minikube dashboard"
