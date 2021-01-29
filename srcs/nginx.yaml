@@ -29,7 +29,14 @@ spec:
             path: ./
             port: 443
             scheme: HTTPS
-          initialDelaySeconds: 30
+          initialDelaySeconds: 50
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: ./
+            port: 443
+            scheme: HTTPS
+          initialDelaySeconds: 10
           periodSeconds: 5
           
 

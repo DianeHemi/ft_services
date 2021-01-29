@@ -24,7 +24,12 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 8086
-          initialDelaySeconds: 30
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        readinessProbe:
+          tcpSocket:
+            port: 8086
+          initialDelaySeconds: 10
           periodSeconds: 5
         volumeMounts:
         - name: influxdb-data

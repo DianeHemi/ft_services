@@ -1,10 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>ft_services</title>
-</head>
-<body>
-    Server is online
-</body>
+<html>
+
+	<!-- En-tête de la page -->
+	<head>
+		<meta charset="utf-8" />
+		<!-- CSS -->
+		<style>
+			body
+			{
+				font-family: Arial, Verdana;
+				background-color: #393939;
+				text-align: center;
+			}
+			header
+			{
+				background-color: #50131d;
+				padding: 6px 0 6px 0;
+			}
+			h1
+			{
+				font-size: 1.8em;
+				color: #fde0e5;
+				letter-spacing: 1.5px;
+			}
+			h2
+			{
+				font-size: 1.3em;
+				color: #fde0e5;
+				padding-bottom: 25px;
+			}
+			ul /*liste*/
+			{
+				
+			}
+			.desc /*class = desc*/
+			{
+
+				width: 60%;
+				padding: 20px 30px 30px 30px;
+				margin: auto;
+				margin-top: 70px;
+				margin-bottom: 70px;
+
+				border-width: 0.15em;
+				border-style: inset;
+				border-color: #50131d;
+				background-color: #5c5c5c;
+
+			}
+			.buttons_block /*class = buttons*/
+			{
+				width: 72%;
+				margin: auto;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				text-align: center;
+				font-size: 1.2em;
+			}
+			.buttons
+			{
+				width: 20%;
+				margin: auto;
+				padding: 30px 5px 30px 5px;
+
+				background-color: #50131d;
+			}
+			.buttons:hover
+			{
+				background-color: #711222;
+			}
+			.ip/*class = ip*/
+			{
+				font-weight: bold;
+				padding-top: 10px;
+			}
+			a /*liens*/
+			{
+				text-decoration: none;
+				font-weight: bold;
+				color: #fecfd7;
+
+			}
+			a:hover
+			{
+				text-decoration: underline;
+				text-decoration-style: dotted;
+			}
+
+
+		</style>
+		<title>ft_services</title>
+	</head>
+
+
+
+
+	<!-- Corps de la page -->
+	<body>
+		
+		<header>
+			<h1>FT_SERVICES</h1> 
+		</header>
+
+
+		<section class="desc">
+		<h2>Navigation</h2>
+
+		<p>You can either use the buttons below to access the containers or the urls as follow : <br /></p>
+
+		<p class="ip">https:// IP:PORT</p>
+		</section>
+
+
+		<p></p>
+
+		<div class="buttons_block">
+			<div class="buttons"><a href="" onclick="javascript:event.target.port=5050">Wordpress</a></div>
+			<div class="buttons"><a href="" onclick="javascript:event.target.port=5000">PhpMyAdmin</a></div>
+			<div class="buttons"><a href="" onclick="javascript:event.target.port=3000">Grafana</a></div>
+		</div>
+
+
+
+	</body>
 </html>
