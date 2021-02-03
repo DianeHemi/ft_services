@@ -9,9 +9,6 @@ RUN apk update && apk add --no-cache nginx openrc openssl wget php7 php7-bcmath 
 
 
 # [Files and permissions]
-RUN adduser -D -g 'www' www \
-	&& chown -R www:www /var/lib/nginx \
-	&& chown -R www:www var/www
 COPY telegraf.conf /etc/
 
 # [Configuration SSL certificate]

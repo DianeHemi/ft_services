@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ftps-deploy
+  name: ftps
   labels:
     app: ftps
 spec:
@@ -37,7 +37,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ftps-svc
+  name: ftps
   annotations:
     metallb.universe.tf/allow-shared-ip: shared
   labels:
@@ -51,8 +51,3 @@ spec:
       name: ftps21
     - port: 30021
       name: ftps30021
-
-
-
-
-

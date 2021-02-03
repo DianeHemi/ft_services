@@ -3,7 +3,7 @@ FROM alpine:3.12
 
 
 # [Expose ports]
-EXPOSE	20 21 30020 30021
+EXPOSE	21 30021
 
 
 # [Download packages]

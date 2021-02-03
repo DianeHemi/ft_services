@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deploy
+  name: nginx
   labels:
     app: nginx-app
 spec:
@@ -46,7 +46,7 @@ kind: Service
 metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: shared
-  name: nginx-svc
+  name: nginx
   labels:
     app: nginx-app
 spec:
