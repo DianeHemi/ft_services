@@ -2,7 +2,7 @@
 
 openrc
 touch /run/openrc/softlevel
-/etc/init.d/nginx start
 /etc/init.d/telegraf start
+rc-service nginx start
 
 tail -f /dev/null

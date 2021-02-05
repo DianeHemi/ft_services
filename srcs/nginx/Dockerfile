@@ -13,7 +13,10 @@ RUN apk update && apk add --no-cache nginx openrc openssl \
 
 
 # [Files and permissions]
-RUN mkdir /www
+RUN adduser -D -g 'www' www \
+	&& mkdir /www \
+	&& chown -R www:www /var/lib/nginx \
+	&& chown -R www:www /www
 
 
 # [Configuration SSL certificate]
