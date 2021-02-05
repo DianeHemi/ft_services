@@ -7,7 +7,7 @@ EXPOSE	3000
 
 # [Download packages]
 RUN apk update && apk add --no-cache openrc openssl \
-	&& apk add grafana --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ \
+	&& apk add grafana --repository http://dl-cdn.alpinelinux.org/alpine/v3.13/community/ \
 	&& apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ \
 	&& apk add rsyslog \
 	&& rm -rf /var/cache/apk/*
