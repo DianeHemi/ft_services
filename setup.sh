@@ -68,3 +68,4 @@ echo
 echo
 printf "\033[0;32mUseful commands :\033[0m\n"
 printf "\033[0;33msudo kubectl get po,svc \nsudo minikube dashboard\033[0m\n"
+printf "\033[0;33msudo kubectl exec -it pod/podname -- /bin/sh \nsudo kubectl delete podname\033[0m\n"
